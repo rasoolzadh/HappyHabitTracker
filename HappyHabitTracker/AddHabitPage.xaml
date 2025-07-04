@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HappyHabitTracker.AddHabitPage"
+             Title="Create New Habit 🎨"
+             BackgroundColor="#FFF7C4"
+             Shell.BackgroundColor="#FFCDC4"
+             Padding="20">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25" VerticalOptions="CenterAndExpand">
+
+            <Frame Padding="15"
+                   CornerRadius="15"
+                   BackgroundColor="#FFCDC4"
+                   BorderColor="#FFADAD"
+                   HasShadow="True">
+                <Label Text="Define Your Happy Habit! ✨"
+                       FontSize="24"
+                       FontAttributes="Bold"
+                       TextColor="#4A4A4A"
+                       HorizontalOptions="Center"/>
+            </Frame>
+
+            <Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10"  StrokeThickness="0"              Padding="15,0">
+                <Entry x:Name="HabitNameEntry"
+                       Placeholder="e.g., Learn a new language, Yoga, Pet the cat"
+                       FontSize="18"
+                       PlaceholderColor="#999"
+                       TextColor="#333"
+                       HeightRequest="50"
+                       ClearButtonVisibility="WhileEditing"
+                       Keyboard="Text"/>
+            </Border>
+
+            <Border BackgroundColor="White"
+                    StrokeShape="RoundRectangle 10"
+                    StrokeThickness="0"
+                    Padding="15,0">
+                <Entry x:Name="HabitIconEntry"
+                       Placeholder="e.g., 📚, 🧘‍♀️, 🐱 (Emoji or short text)"
+                       FontSize="18"
+                       PlaceholderColor="#999"
+                       TextColor="#333"
+                       HeightRequest="50"
+                       ClearButtonVisibility="WhileEditing"
+                       MaxLength="5"
+                       Keyboard="Text"/>
+            </Border>
+
+            <Label Text="Choose a Color:"
+                   FontSize="18"
+                   FontAttributes="Bold"
+                   TextColor="#4A4A4A" />
+
+            <FlexLayout Wrap="Wrap"
+                        JustifyContent="SpaceEvenly"
+                        AlignItems="Center">
+                <Button BackgroundColor="#FFADAD" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#FFD6A5" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#FDFFB6" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#CAFFBF" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#A0E7E5" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#A3C9F9" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#D5AAFF" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#FEC8D8" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+                <Button BackgroundColor="#FFC3A0" WidthRequest="50" HeightRequest="50" CornerRadius="25" Margin="5" Clicked="OnColorSelected"/>
+            </FlexLayout>
+
+            <BoxView x:Name="SelectedColorBox"
+                     Color="Gray"
+                     HeightRequest="30"
+                     WidthRequest="100"
+                     CornerRadius="5"
+                     HorizontalOptions="Center"
+                     VerticalOptions="Start"/>
+
+            <Button Text="Save Habit"
+                    Clicked="OnSaveHabitClicked"
+                    BackgroundColor="DarkSlateBlue"
+                    TextColor="White"
+                    FontSize="20"
+                    Padding="15"
+                    Margin="0,20,0,0"
+                    CornerRadius="15"
+                    HorizontalOptions="FillAndExpand">
+                <Button.Shadow>
+                    <Shadow Brush="Black" Offset="3,3" Opacity="0.3" Radius="5"/>
+                </Button.Shadow>
+            </Button>
+
+            <Button Text="Cancel"
+                    Clicked="OnCancelClicked"
+                    BackgroundColor="LightGray"
+                    TextColor="#333"
+                    FontSize="18"
+                    Padding="10"
+                    CornerRadius="15"
+                    HorizontalOptions="FillAndExpand"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="HappyHabitTracker.MainPage"
+    BackgroundColor="#FFF7C4">
+
+    <Grid RowDefinitions="Auto, *">
+
+        <!-- Header Section -->
+        <Grid Grid.Row="0"
+              BackgroundColor="#FFCDC4"
+              Padding="15"
+              ZIndex="1">
+            <VerticalStackLayout Spacing="10">
+                <!-- Title -->
+                <Label Text="Happy Habits 🌻"
+                       FontSize="32"
+                       FontAttributes="Bold"
+                       TextColor="#333"
+                       HorizontalOptions="Start" />
+
+                <!-- View Progress Button aligned right -->
+                <Grid ColumnDefinitions="*,Auto">
+                    <BoxView HeightRequest="1" />
+                    <Button Text="📊 View Progress"
+                            Clicked="OnViewProgressClicked"
+                            BackgroundColor="DarkSlateBlue"
+                            TextColor="White"
+                            FontSize="16"
+                            Padding="10,5"
+                            CornerRadius="10"
+                            HorizontalOptions="End"
+                            VerticalOptions="Start">
+                        <Button.Shadow>
+                            <Shadow Brush="Black" Offset="3,3" Opacity="0.3" Radius="5"/>
+                        </Button.Shadow>
+                    </Button>
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Main Habit List -->
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout x:Name="MainHabitLayout" Padding="20" Spacing="18" />
+        </ScrollView>
+
+        <!-- Habit Popup -->
+        <AbsoluteLayout x:Name="HabitPopupOverlay"
+                        IsVisible="False"
+                        BackgroundColor="#80000000"
+                        Padding="30"
+                        ZIndex="999">
+            <Frame AbsoluteLayout.LayoutFlags="PositionProportional"
+                   AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                   BackgroundColor="White"
+                   CornerRadius="20"
+                   HasShadow="True"
+                   Padding="0"
+                   VerticalOptions="Center">
+                <Grid>
+                    <VerticalStackLayout Padding="20,20,20,15" Spacing="15">
+                        <Label x:Name="HabitPopupTitle"
+                               Text="Well done!"
+                               FontSize="24"
+                               FontAttributes="Bold"
+                               TextColor="#4A4A4A"
+                               HorizontalTextAlignment="Center" />
+
+                        <Label x:Name="HabitPopupMessage"
+                               FontSize="17"
+                               TextColor="#444"
+                               HorizontalTextAlignment="Center"
+                               LineBreakMode="WordWrap" />
+
+                        <Button Text="Awesome!"
+                                BackgroundColor="#5AC8FA"
+                                TextColor="White"
+                                Clicked="OnCloseHabitPopup"
+                                CornerRadius="15"
+                                WidthRequest="140"
+                                HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+        </AbsoluteLayout>
+
+        <!-- Loading Overlay -->
+        <AbsoluteLayout x:Name="LoadingOverlay"
+                        IsVisible="False"
+                        BackgroundColor="#80000000"
+                        HorizontalOptions="FillAndExpand"
+                        VerticalOptions="FillAndExpand"
+                        ZIndex="1000">
+
+            <VerticalStackLayout
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Spacing="12">
+
+                <ActivityIndicator
+                    IsRunning="True"
+                    Color="White"
+                    WidthRequest="60"
+                    HeightRequest="60" />
+
+                <Label Text="Loading..."
+                       TextColor="White"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center" />
+            </VerticalStackLayout>
+        </AbsoluteLayout>
+    </Grid>
+</ContentPage>

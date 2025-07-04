@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:localModels="clr-namespace:HappyHabitTracker.Models"
+    xmlns:localConverters="clr-namespace:HappyHabitTracker.Converters"
+    xmlns:sys="clr-namespace:System;assembly=System.Runtime"
+    x:Class="HappyHabitTracker.ProgressChartPage"
+    BackgroundColor="#FFF7C4"
+    Padding="20"
+    Shell.BackgroundColor="#FFCDC4"
+    Title="{Binding Title}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <localConverters:DateToBoolConverter x:Key="DateToBoolConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="🧹 Reset All Habits"
+                     Order="Primary"
+                     Priority="0"
+                     Clicked="OnResetProgressClicked" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="25">
+
+            <Frame Padding="15"
+                   CornerRadius="15"
+                   BackgroundColor="#FFCDC4"
+                   BorderColor="#FFADAD"
+                   HasShadow="True">
+                <VerticalStackLayout>
+                    <Label Text="Habit Progress Details"
+                           FontSize="28"
+                           FontAttributes="Bold"
+                           TextColor="#4A4A4A"
+                           HorizontalOptions="Center"/>
+                    <Label x:Name="HabitCountLabel"  Text=""                    FontSize="16"
+                           TextColor="#666"
+                           HorizontalOptions="Center"
+                           Margin="0,5,0,0"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <CollectionView x:Name="HabitsProgressCollection"
+                            SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="localModels:HabitProgress">
+                        <Frame Padding="15"
+                               Margin="0,0,0,10"
+                               CornerRadius="15"
+                               BackgroundColor="{Binding BackgroundColor}"
+                               HasShadow="True">
+                            <Grid ColumnDefinitions="*,Auto"
+                                  RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                                  RowSpacing="8">
+
+                                <Label Text="{Binding Name}"
+                                       FontSize="18"
+                                       FontAttributes="Bold"
+                                       TextColor="{Binding TextColor}"
+                                       Grid.Column="0"
+                                       Grid.Row="0"/>
+
+                                <Label Text="{Binding WeeklyProgress, StringFormat='{0:P0}'}"
+                                       FontSize="16"
+                                       FontAttributes="Bold"
+                                       TextColor="{Binding TextColor}"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       HorizontalOptions="End"/>
+
+                                <ProgressBar Grid.Column="0"
+                                             Grid.ColumnSpan="2"
+                                             Grid.Row="1"
+                                             Progress="{Binding WeeklyProgress}"
+                                             ProgressColor="White"
+                                             BackgroundColor="#606060"
+                                             HeightRequest="30"
+                                             HorizontalOptions="FillAndExpand"/>
+
+                                <Label Text="{Binding WeeklyPercentText}"
+                                       FontSize="12"
+                                       TextColor="{Binding TextColor}"
+                                       Grid.Column="0"
+                                       Grid.ColumnSpan="2"
+                                       Grid.Row="2"
+                                       HorizontalOptions="Start"
+                                       Margin="0,5,0,0" />
+
+                                <VerticalStackLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Spacing="5" Margin="0,10,0,0">
+                                    <Label Text="{Binding CurrentStreak, StringFormat='🔥 Current Streak: {0} days'}"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="{Binding TextColor}"/>
+                                    <Label Text="{Binding LongestStreak, StringFormat='🏆 Longest Streak: {0} days'}"
+                                           FontSize="14"
+                                           FontAttributes="Bold"
+                                           TextColor="{Binding TextColor}"/>
+                                </VerticalStackLayout>
+
+                                <Label Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4"
+                                       Text="Recent Completions:"
+                                       FontSize="14"
+                                       FontAttributes="Bold"
+                                       TextColor="{Binding TextColor}"
+                                       Margin="0,5,0,0"/>
+
+                                <FlexLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5"
+                                            BindableLayout.ItemsSource="{Binding CompletionDates}"
+                                            Wrap="Wrap" JustifyContent="Start" AlignItems="Center">
+                                    <BindableLayout.ItemTemplate>
+                                        <DataTemplate x:DataType="sys:DateTime">
+                                            <Frame BackgroundColor="{Binding Source={RelativeSource AncestorType={x:Type localModels:HabitProgress}}, Path=BackgroundColor}"
+                                                   Padding="5" CornerRadius="5" HasShadow="False"
+                                                   Margin="2.5" >
+                                                <Label Text="{Binding StringFormat='{0:MMM d}'}"
+                                                       FontSize="10"
+                                                       TextColor="{Binding Source={RelativeSource AncestorType={x:Type localModels:HabitProgress}}, Path=TextColor}"/>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </BindableLayout.ItemTemplate>
+                                    <BindableLayout.EmptyView>
+                                        <Label Text="No recent completions." TextColor="{Binding Source={RelativeSource AncestorType={x:Type localModels:HabitProgress}}, Path=TextColor}" FontSize="12"/>
+                                    </BindableLayout.EmptyView>
+                                </FlexLayout>
+
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Label Text="Every small step counts! 🌟"
+                   FontSize="16"
+                   FontAttributes="Italic"
+                   TextColor="#666"
+                   HorizontalOptions="Center"
+                   Margin="0,20,0,0"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
