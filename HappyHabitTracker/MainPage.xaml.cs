@@ -28,14 +28,12 @@ namespace HappyHabitTracker
 
         private static readonly List<PredefinedHabit> PredefinedHabits = new List<PredefinedHabit>
         {
-            // 🧠 Mind & Learning
             new PredefinedHabit("🧠 Mind & Learning", "📖 Read a Book", "#FFADAD"),
             new PredefinedHabit("🧠 Mind & Learning", "🧩 Solve a Puzzle", "#FFD6A5"),
             new PredefinedHabit("🧠 Mind & Learning", "🎓 Learn a Word", "#FDFFB6"),
             new PredefinedHabit("🧠 Mind & Learning", "✍️ Write Journal", "#CAFFBF"),
             new PredefinedHabit("🧠 Mind & Learning", "📅 Plan Tomorrow", "#A0E7E5"),
 
-            // 💪 Health & Fitness
             new PredefinedHabit("💪 Health & Fitness", "💧 Drink Water", "#5AC8FA"),
             new PredefinedHabit("💪 Health & Fitness", "🏃 Exercise", "#55EFBD"),
             new PredefinedHabit("💪 Health & Fitness", "🍎 Eat Healthy", "#FF6B6B"),
@@ -43,21 +41,18 @@ namespace HappyHabitTracker
             new PredefinedHabit("💪 Health & Fitness", "🛌 Sleep Early", "#FDC1C5"),
             new PredefinedHabit("💪 Health & Fitness", "📵 Limit Screen Time", "#C1C8E4"),
 
-            // 🎨 Creativity & Fun
             new PredefinedHabit("🎨 Creativity & Fun", "🎨 Draw Something", "#FEC8D8"),
             new PredefinedHabit("🎨 Creativity & Fun", "🎶 Listen to Music", "#FDCB6E"),
             new PredefinedHabit("🎨 Creativity & Fun", "🎮 Play a Game", "#A0E7E5"),
             new PredefinedHabit("🎨 Creativity & Fun", "🎤 Sing or Dance", "#F9C6C9"),
             new PredefinedHabit("🎨 Creativity & Fun", "🎬 Watch Something Short", "#FFF5BA"),
 
-            // 💕 Kindness & Relationships
             new PredefinedHabit("💕 Kindness & Relationships", "💬 Call a Friend", "#C1C8E4"),
             new PredefinedHabit("💕 Kindness & Relationships", "💌 Write a Thank You", "#FFB4B4"),
             new PredefinedHabit("💕 Kindness & Relationships", "🤗 Give a Hug", "#81ECEC"),
             new PredefinedHabit("💕 Kindness & Relationships", "🧃 Recycle Something", "#D6A2E8"),
             new PredefinedHabit("💕 Kindness & Relationships", "🌿 Water a Plant", "#B5EAD7"),
 
-            // 🧹 Daily Routines
             new PredefinedHabit("🧹 Daily Routines", "🧹 Clean Up Room", "#FFFA65"),
             new PredefinedHabit("🧹 Daily Routines", "🛏️ Make Your Bed", "#FDC1C5"),
             new PredefinedHabit("🧹 Daily Routines", "🪥 Brush Teeth", "#9AECDB"),
@@ -65,28 +60,24 @@ namespace HappyHabitTracker
             new PredefinedHabit("🧹 Daily Routines", "🧾 Review To-Do List", "#FFD6A5"),
             new PredefinedHabit("🧹 Daily Routines", "⏰ Wake Up on Time", "#FFBDBD"),
 
-            // 🧘 Mindfulness & Calm
             new PredefinedHabit("🧘 Mindfulness & Calm", "🧘 Breathe Deeply", "#A3C9F9"),
             new PredefinedHabit("🧘 Mindfulness & Calm", "🙏 Say Thank You", "#FDCB6E"),
             new PredefinedHabit("🧘 Mindfulness & Calm", "🕯️ Light a Candle", "#D3BBDD"),
             new PredefinedHabit("🧘 Mindfulness & Calm", "💤 Power Nap", "#D0F4DE"),
             new PredefinedHabit("🧘 Mindfulness & Calm", "🧠 Do Nothing (1 min)", "#FFB5E8"),
 
-            // 🐾 Nature & Pets
             new PredefinedHabit("🐾 Nature & Pets", "🐶 Feed the Pet", "#B0EACD"),
             new PredefinedHabit("🐾 Nature & Pets", "🐕 Walk the Dog", "#FAD0C3"),
             new PredefinedHabit("🐾 Nature & Pets", "🌤️ Watch the Sky", "#A0E7E5"),
             new PredefinedHabit("🐾 Nature & Pets", "🌳 Touch a Tree", "#CAFFBF"),
             new PredefinedHabit("🐾 Nature & Pets", "🌻 Water Flowers", "#FDFFB6"),
 
-            // 🛠 Productivity & Growth
             new PredefinedHabit("🛠 Productivity & Growth", "✅ Finish a Task", "#FEC8D8"),
             new PredefinedHabit("🛠 Productivity & Growth", "📂 Clean a Folder", "#FFDAC1"),
             new PredefinedHabit("🛠 Productivity & Growth", "🧹 Organize Something", "#D5AAFF"),
             new PredefinedHabit("🛠 Productivity & Growth", "🧾 Check To-Do List", "#FFF5BA"),
             new PredefinedHabit("🛠 Productivity & Growth", "📋 Write a Goal", "#A3E4DB"),
 
-            // 🧡 Self-Love & Mood
             new PredefinedHabit("🧡 Self-Love & Mood", "🪞 Compliment Yourself", "#FFC3A0"),
             new PredefinedHabit("🧡 Self-Love & Mood", "💖 Smile at the Mirror", "#FFB6B9"),
             new PredefinedHabit("🧡 Self-Love & Mood", "🧼 Pamper Yourself", "#D0F4DE"),
@@ -336,11 +327,11 @@ namespace HappyHabitTracker
 
 
                 string message = $"{GetHabitMessage(habitFullName)}\n\n" +
-                                 $"Today: {todayTapCount} time{(todayTapCount > 1 ? "s" : "")}\n" +
-                                 $"Current Streak: {currentStreak} days\n" +
-                                 $"Total: {totalCompleted} days\n"; // +
-                                 //$"📆 Last 7 days: {weekly} days\n" +
-                                 //$"🗓️ Last 30 days: {monthly} days";
+                                 $"✅ Tapped today: {todayTapCount} time{(todayTapCount > 1 ? "s" : "")}\n" +
+                                 $"🔥 Current Streak: {currentStreak} days\n" +
+                                 $"🎯 Total: {totalCompleted} days\n" +
+                                 $"📆 Last 7 days: {weekly} days\n" +
+                                 $"🗓️ Last 30 days: {monthly} days";
 
                 HabitPopupTitle.Text = "✅ Habit Complete!";
                 HabitPopupMessage.Text = message;
@@ -439,7 +430,7 @@ namespace HappyHabitTracker
                 "🎤 Sing or Dance" => "Express yourself! 🎤",
                 "🎬 Watch Something Short" => "A quick break! 🎬",
                 "💬 Call a Friend" => "Connections warm the heart! ❤️",
-                "💌 Write a Thank You" => "Spread gratitude! 🙏", // Corrected: removed stray comma
+                "💌 Write a Thank You" => "Spread gratitude! 🙏",
                 "🤗 Give a Hug" => "Warm hugs make the day! 🤗",
                 "🧃 Recycle Something" => "Helping Mother Earth! 🌍",
                 "🌿 Water a Plant" => "Nurturing life! 🌱",
@@ -456,7 +447,7 @@ namespace HappyHabitTracker
                 "🧠 Do Nothing (1 min)" => "Mindful pause. 🧘‍♀️",
                 "🐶 Feed the Pet" => "Happy pet, happy you! 🐾",
                 "🐕 Walk the Dog" => "Best pals out and about! 🐕",
-                "🌤️ Watch the Sky" => "A moment of wonder! 🌌", // Corrected: removed stray comma
+                "🌤️ Watch the Sky" => "A moment of wonder! 🌌",
                 "🌳 Touch a Tree" => "Connect with nature! 🌳",
                 "🌻 Water Flowers" => "Blooming beauty! 🌸",
                 "✅ Finish a Task" => "Task conquered! 💪",
@@ -517,12 +508,27 @@ namespace HappyHabitTracker
         public string Name { get; set; }
         public string Icon { get; set; }
         public string ColorHex { get; set; }
+        // NEW PROPERTIES FOR REMINDERS (Ensured these are present)
+        public bool HasReminder { get; set; } = false;
+        public TimeSpan ReminderTime { get; set; } = TimeSpan.FromHours(9); // Default to 9 AM
+        public int NotificationId { get; set; } // Unique ID for scheduling/cancelling notifications
 
         public CustomHabit(string name, string icon, string colorHex)
         {
             Name = name;
             Icon = icon;
             ColorHex = colorHex;
+        }
+
+        // Add an optional constructor for custom habits with reminders (used in AddHabitPage)
+        public CustomHabit(string name, string icon, string colorHex, bool hasReminder, TimeSpan reminderTime, int notificationId)
+        {
+            Name = name;
+            Icon = icon;
+            ColorHex = colorHex;
+            HasReminder = hasReminder;
+            ReminderTime = reminderTime;
+            NotificationId = notificationId;
         }
     }
 }
