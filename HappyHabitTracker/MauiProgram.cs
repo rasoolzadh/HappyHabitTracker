@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microcharts.Maui;
+
+
 namespace HappyHabitTracker
 {
     public static class MauiProgram
@@ -8,6 +11,8 @@ namespace HappyHabitTracker
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMicrocharts()
+ 
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -15,9 +20,9 @@ namespace HappyHabitTracker
                 });
 
 #if DEBUG
-            builder.Logging.AddDebug();
+    		builder.Logging.AddDebug();
 #endif
-
+         
             return builder.Build();
         }
     }
