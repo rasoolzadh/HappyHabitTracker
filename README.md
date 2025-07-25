@@ -1,6 +1,6 @@
 # Happy Habit Tracker 🌻
 
-A delightful and intuitive mobile application built with **.NET MAUI** to help you build positive habits, track progress, and stay motivated on your journey to a happier, more consistent self!
+A delightful and intuitive cross-plateform application built with **.NET MAUI** to help you build positive habits, track progress, and stay motivated on your journey to a happier, more consistent self!
 
 ![Happy Habit Tracker Banner](https://github.com/rasoolzadh/HappyHabitTracker/blob/master/HappyHabitTracker/Resources/Images/screen1.PNG)
 ![Happy Habit Tracker Banner](https://github.com/rasoolzadh/HappyHabitTracker/blob/master/HappyHabitTracker/Resources/Images/screen2.PNG)
