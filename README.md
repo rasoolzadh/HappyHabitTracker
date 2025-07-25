@@ -58,6 +58,4 @@ Pull requests are welcome! For major changes, open an issue first to discuss imp
 
 ---
 
----
-
 Made with ❤️ and .NET MAUI  
